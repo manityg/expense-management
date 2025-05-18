@@ -17,6 +17,7 @@ const port = process.env.PORT;
 connectDB();
 
 const allowedOrigins = [
+  'https://musical-youtiao-bf3a89.netlify.app/',
   'http://localhost:3000',
 ];
 
