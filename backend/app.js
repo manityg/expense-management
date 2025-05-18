@@ -17,7 +17,7 @@ const port = process.env.PORT;
 connectDB();
 
 const allowedOrigins = [
-  'https://expense-management-system-tau.vercel.app/',
+  'https://expense-management-system-tau.vercel.app',
   'http://localhost:3000',
 ];
 
@@ -25,7 +25,13 @@ const allowedOrigins = [
 app.use(express.json());
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
