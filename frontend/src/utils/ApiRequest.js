@@ -1,4 +1,4 @@
-const host = "https://expense-api-s4rv.onrender.com";
+const host = "https://expense-api-s4rv.onrender.com/api/";
 //const host = "http://localhost:5000";
 export const setAvatarAPI = `${host}/api/auth/setAvatar`;
 export const registerAPI = `${host}/api/auth/register`;
