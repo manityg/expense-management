@@ -1,0 +1,18 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"
+    container_name: node-backend
+    working_dir: /app
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    container_name: react-frontend
+    working_dir: /app
+    depends_on:
+      - backend
